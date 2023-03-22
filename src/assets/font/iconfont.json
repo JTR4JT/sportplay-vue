@@ -1,0 +1,114 @@
+{
+  "id": "3964676",
+  "name": "vueProject",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "435924",
+      "name": "卡路里",
+      "font_class": "qialuli",
+      "unicode": "e7b4",
+      "unicode_decimal": 59316
+    },
+    {
+      "icon_id": "1304896",
+      "name": "用户",
+      "font_class": "yonghu",
+      "unicode": "e624",
+      "unicode_decimal": 58916
+    },
+    {
+      "icon_id": "1305474",
+      "name": "权限",
+      "font_class": "quanxian",
+      "unicode": "e63f",
+      "unicode_decimal": 58943
+    },
+    {
+      "icon_id": "1379762",
+      "name": "icon-guanliyuan",
+      "font_class": "icon-guanliyuan",
+      "unicode": "e62a",
+      "unicode_decimal": 58922
+    },
+    {
+      "icon_id": "5961302",
+      "name": "反射",
+      "font_class": "fanshe",
+      "unicode": "ec50",
+      "unicode_decimal": 60496
+    },
+    {
+      "icon_id": "12289374",
+      "name": "运动-1",
+      "font_class": "yundong-",
+      "unicode": "e674",
+      "unicode_decimal": 58996
+    },
+    {
+      "icon_id": "17605540",
+      "name": "营养科",
+      "font_class": "yingyangke",
+      "unicode": "e81d",
+      "unicode_decimal": 59421
+    },
+    {
+      "icon_id": "31358478",
+      "name": "科普宣教",
+      "font_class": "kepuxuanjiao",
+      "unicode": "e611",
+      "unicode_decimal": 58897
+    },
+    {
+      "icon_id": "33997780",
+      "name": "健身房",
+      "font_class": "jianshenfang",
+      "unicode": "e626",
+      "unicode_decimal": 58918
+    },
+    {
+      "icon_id": "1135931",
+      "name": "查询",
+      "font_class": "search",
+      "unicode": "e610",
+      "unicode_decimal": 58896
+    },
+    {
+      "icon_id": "2076243",
+      "name": " 增加",
+      "font_class": "zengjia",
+      "unicode": "e889",
+      "unicode_decimal": 59529
+    },
+    {
+      "icon_id": "2076418",
+      "name": "修改",
+      "font_class": "xiugai",
+      "unicode": "e8cf",
+      "unicode_decimal": 59599
+    },
+    {
+      "icon_id": "5643518",
+      "name": "密码",
+      "font_class": "mima",
+      "unicode": "e605",
+      "unicode_decimal": 58885
+    },
+    {
+      "icon_id": "11372693",
+      "name": "删除",
+      "font_class": "shanchu",
+      "unicode": "e8b6",
+      "unicode_decimal": 59574
+    },
+    {
+      "icon_id": "11518443",
+      "name": "账号",
+      "font_class": "zhanghao",
+      "unicode": "e632",
+      "unicode_decimal": 58930
+    }
+  ]
+}
