@@ -4,3 +4,10 @@ HTML,body,#app{
     margin: 0;
     padding: 0;
 }
+
+/* 表格样式 */
+.el-table{
+    margin-top: 15px;
+    font-size: 12px;
+    min-width: 350px;
+}
