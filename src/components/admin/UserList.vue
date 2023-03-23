@@ -85,6 +85,34 @@
                     <el-button type="primary" @click="addUser">确 定</el-button>
                 </span>
             </el-dialog>
+
+       <!-- 修改对话框 -->
+            <el-dialog title="修改用户信息" :visible.sync="editDialogVisible" width="50%"
+             @close="editDialogClosed">
+             <!-- 内容主体区域 -->
+                <el-form :model="editForm" :rules="editFormRules"
+                    ref="editFormRef" label-width="70px">
+                    <!-- 用户名 -->
+                    <el-form-item label="用户名" prop="username">
+                    <el-input v-model="editForm.username"></el-input>
+                    </el-form-item>
+                    <!-- 密码 -->
+                    <el-form-item label="密码" prop="password">
+                    <el-input v-model="editForm.password"></el-input>
+                    </el-form-item>
+                    <!-- 邮箱 -->
+                    <el-form-item label="邮箱" prop="email">
+                    <el-input v-model="editForm.email"></el-input>
+                    </el-form-item>
+                </el-form>
+                 <!-- 内容底部区域 -->
+                <span slot="footer" class="dialog-footer">
+                    <el-button @click="editDialogVisible = false">取 消</el-button>
+                    <el-button type="primary" @click="editUserInfo">确 定</el-button>
+                </span>
+            </el-dialog>
+            
+
         </el-card>
     </div>
 </template>
@@ -109,8 +137,30 @@ export default {
                 password: '',
                 email: ''
             },
-            // 验证规则
+            //修改用户信息
+            editForm:{
+                username: '',
+                password: '',
+                email: ''
+            },
+            editDialogVisible: false,
+            // 增加验证规则
       addFormRules:{
+            username:[
+            { required: true, message: "请输入用户名", trigger: "blur" },
+            { min: 5, max: 8, message: "长度在 5 到 8 个字符", trigger: "blur" }
+            ],
+            password:[
+            { required: true, message: "请输入密码", trigger: "blur" },
+            { min: 6, max: 8, message: "长度在 6 到 8 个字符", trigger: "blur" }
+            ],
+            email:[
+            { required: true, message: "请输入邮箱", trigger: "blur" },
+            { min: 5, max: 15, message: "请输入正确邮箱地址", trigger: "blur" }
+            ],
+            },
+            //修改
+            editFormRules:{
             username:[
             { required: true, message: "请输入用户名", trigger: "blur" },
             { min: 5, max: 8, message: "长度在 5 到 8 个字符", trigger: "blur" }
@@ -175,6 +225,48 @@ export default {
         this.addDialogVisible = false;
         this.getUserList();
       })
+    },
+    //根据主键删除
+    async deleteUser(id){
+        const confirmResult = await this.$confirm('操作会永久删除用户学习,是否继续','提示',{
+            confirmButtonText: '确定',
+            cancelButtonText: '取消',
+            type: 'warning'
+        }).catch(err => err)
+        if(confirmResult != 'confirm'){
+            return this.$message.info("已取消删除");
+        }
+        const {data:res} = await this.$http.delete("deleteUser?id="+id);
+        if (res != "success") {
+        return this.$message.error("删除失败！！！");
+        }
+        this.$message.success("删除成功！！！");
+        this.getUserList();
+    },
+    //显示对话框修改
+    async showEditDialog(id){
+        const {data:res} = await this.$http.get("getUpdate?id="+id);
+        this.editForm = res;
+        this.editDialogVisible = true;
+    },
+    //关闭对话框
+    editDialogClosed(){
+        this.$refs.editFormRef.resetFields();
+    },
+    //确定修改
+    editUserInfo(){
+        this.$refs.editFormRef.validate(async valid =>{
+            if(!valid)return;
+            //发起修改请求
+          const {data:res} = await this.$http.put("editUser",this.editForm);
+          if (res != "success") {
+                return this.$message.error("修改失败！！！");
+                }
+                this.$message.success("修改成功！！！");
+
+                this.editDialogVisible = false;
+                this.getUserList();
+        })
     },
     },
    
